@@ -31,6 +31,7 @@ class ATM
     }
     void Account()
     {
+        cout<<"                 Create Account"<<endl;
         if (head == NULL)
         {
             node *newnode = new node;
@@ -85,6 +86,7 @@ class ATM
 
     int LoginAccount()
     {
+        cout<<"                 Login Account"<<endl;
         node *temp = head;
         cout << "Please enter your Card No: ";
         cin >> y;
@@ -112,4 +114,5 @@ int main()
 {
     ATM obj;
     obj.Account();
+    obj.LoginAccount();
 }
