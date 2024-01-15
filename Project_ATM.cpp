@@ -31,7 +31,7 @@ class ATM
     }
     void Account()
     {
-        cout<<"                 Create Account"<<endl;
+
         if (head == NULL)
         {
             node *newnode = new node;
@@ -59,7 +59,6 @@ class ATM
 
     int LoginAccount()
     {
-        cout<<"                 Login Account"<<endl;
         node *temp = head;
         cout << "Please enter your Card No: ";
         cin >> y;
@@ -70,7 +69,7 @@ class ATM
         {
             if (temp->cardNo == y && temp->pin == z)
             {
-                cout << "************" << endl;
+                cout << "*****************************************" << endl;
                 cout << "Enter Name: " << temp->name << endl;
                 return 0;
             }
@@ -81,11 +80,46 @@ class ATM
         return 1;
     }
 
+
+    void main_menu()
+    {
+        cout << "_____________________" << endl;
+        cout << "MAIN MENU" << endl;
+        cout << "1. Create Account" << endl;
+        cout << "2. Login to Account" << endl;
+        cout << "3. Exit" << endl;
+        cout << "_____________________" << endl;
+        int scommand;
+        cout << "Enter the command: ";
+        cin >> scommand;
+
+        switch (scommand)
+        {
+        case 1:
+            Account();
+            main_menu();
+            break;
+        case 2:
+            LoginAccount();
+            break;
+        case 3:
+            cout << "Exiting..." << endl;
+            break;
+        default:
+            cout << "Wrong input" << endl;
+        }
+    }
 };
+
+
 
 int main()
 {
+    cout << "**********************************" << endl;
+    cout << "   Welcome To The MY ATM Bank" << endl;
+    cout << "**********************************"<< endl;
+
     ATM obj;
-    obj.Account();
-    obj.LoginAccount();
+    obj.main_menu();
+
 }
