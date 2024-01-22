@@ -1,5 +1,4 @@
 # ATM management system
-
 *Features :
 1. account create.
 2. Login as user.
