@@ -145,6 +145,30 @@ public:
             temp = temp->next;
         }
     }
+    void widthdraw()
+    {
+        node *temp = head;
+        while (temp != NULL)
+        {
+            if (temp->cardNo == y && temp->pin == z)
+            {
+                cout << "Please Enter The Amount: ";
+                cin >> c;
+                if (temp->cash >= c)
+                {
+                    temp->cash = temp->cash - c;
+                    cout << "Amount successfully Withdrawn" << endl;
+                }
+                else
+                {
+                    cout << "You don't have enough Balance to withdraw" << endl;
+                    cout << "************" << endl;
+                }
+                break;
+            }
+            temp = temp->next;
+        }
+    }
     void user_menu()
     {
         cout << "_____________________" << endl;
@@ -167,8 +191,11 @@ public:
             user_menu();
             break;
         case 2:
+            widthdraw();
+            user_menu();
             break;
         case 3:
+            user_menu();
             break;
         case 4:
             main_menu();
