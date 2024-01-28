@@ -49,7 +49,7 @@ public:
             cin >> y;
             while(count_digits(y) < 11 || count_digits(y) > 11)
             {
-                cout<<"Put 11 digits cardNo: "<<count_digits(y);
+                cout<<"Put 11 digits cardNo: ";
                 cin>>y;
             }
             newnode->cardNo = y;
@@ -77,7 +77,7 @@ public:
             cin>>y;
             while(count_digits(y) < 11 || count_digits(y) > 11)
             {
-                cout<<"Put 11 digits cardNo: "<<count_digits(y);
+                cout<<"Put 11 digits cardNo: ";
                 cin>>y;
             }
             newnode->cardNo=y;
@@ -169,6 +169,19 @@ public:
             temp = temp->next;
         }
     }
+    void Balance_check()
+    {
+        node*temp=head;
+        while(temp!=NULL)
+        {
+            if(temp->cardNo==y&&temp->pin==z)
+            {
+                cout<<"Your Balance is: "<<temp->cash<<".TK"<<endl;
+                break;
+            }
+            temp=temp->next;
+        }
+    }
     void user_menu()
     {
         cout << "_____________________" << endl;
@@ -195,6 +208,7 @@ public:
             user_menu();
             break;
         case 3:
+            Balance_check();
             user_menu();
             break;
         case 4:
@@ -208,12 +222,12 @@ public:
     }
     void main_menu()
     {
-        cout << "_____________________" << endl;
-        cout << "     MAIN MENU" << endl;
-        cout << "1. Create Account" << endl;
-        cout << "2. Login to Account" << endl;
-        cout << "3. Exit" << endl;
-        cout << "_____________________" << endl;
+        cout << "|___________________|" << endl;
+        cout << "|    MAIN MENU      |"      << endl;
+        cout << "|1. Create Account  |" << endl;
+        cout << "|2. Login to Account|" << endl;
+        cout << "|3. Exit            |" << endl;
+        cout << "|___________________|" << endl;
         int scommand;
 
         cout << "Enter the command: ";
@@ -246,10 +260,10 @@ public:
 int main()
 {
     cout << "**********************************" << endl;
-    cout << "   Welcome To The MY ATM Bank" << endl;
+    cout << "*   Welcome To The MY ATM Bank   *" << endl;
     cout << "**********************************"<< endl;
 
     ATM obj;
     obj.main_menu();
-
+    return 0;
 }
