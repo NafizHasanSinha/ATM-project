@@ -56,6 +56,11 @@ public:
 
             cout << "Please enter your Pin: ";
             cin >> z;
+            while(count_digits(z) < 4 || count_digits(z) > 4)
+            {
+                cout<<"Put 4 digits pin: ";
+                cin>>z;
+            }
             newnode->pin = z;
 
             newnode->cash = 0;
@@ -216,14 +221,14 @@ public:
             break;
         default:
             cout << "Wrong  input" << endl;
-
+            cout << "Please Try Again...."<<endl << endl;
             return user_menu();
         }
     }
     void main_menu()
     {
         cout << "|___________________|" << endl;
-        cout << "|    MAIN MENU      |"      << endl;
+        cout << "|    MAIN MENU      |" << endl;
         cout << "|1. Create Account  |" << endl;
         cout << "|2. Login to Account|" << endl;
         cout << "|3. Exit            |" << endl;
@@ -249,7 +254,8 @@ public:
             cout << "Exiting..." << endl;
             break;
         default:
-            cout << "Wrong input" << endl;
+            cout<<endl << "Wrong input" << endl;
+            cout << "Please Try Again...."<<endl << endl;
             return main_menu();
         }
     }
