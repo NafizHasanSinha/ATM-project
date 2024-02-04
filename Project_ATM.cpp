@@ -155,7 +155,7 @@ public:
             temp = temp->next;
         }
     }
-    void widthdraw()
+    void Withdraw()
     {
         node *temp = head;
         while (temp != NULL)
@@ -256,27 +256,31 @@ public:
 
         switch (Achoice)
         {
-            case 1:
-                AdminPanel();
-                break;
-            case 2:
-                AdminPanel();
-                break;
-            case 3:
-                cout << "Exiting Admin Panel..." << endl;
-                break;
-            default:
-                cout << "Invalid choice in Admin Panel" << endl;
+        case 1:
+            AdminPanel();
+            break;
+        case 2:
+            AdminPanel();
+            break;
+        case 3:
+            cout << "Exiting Admin Panel..." << endl;
+            break;
+        default:
+            cout << "Invalid choice in Admin Panel" << endl;
         }
     }
     void user_menu()
     {
         cout << "_____________________" << endl;
         cout << "       USER MENU" << endl;
+        cout << "_____________________" << endl;
         cout << " 1. Deposit Money" << endl;
         cout << " 2. Withdraw Money" << endl;
         cout << " 3. Check Balance" << endl;
-        cout << " 4. Main Menu" << endl;
+        cout << " 4. Request Service" << endl;
+        cout << " 5. Pending Request" << endl;
+        cout << " 6. Money Transfer" << endl;
+        cout << " 7. Main Menu" << endl;
         cout << "_____________________" << endl;
 
         int command;
@@ -291,7 +295,7 @@ public:
             user_menu();
             break;
         case 2:
-            widthdraw();
+            Withdraw();
             user_menu();
             break;
         case 3:
@@ -299,10 +303,22 @@ public:
             user_menu();
             break;
         case 4:
+            RequestService();
+            user_menu();
+            break;
+        case 5:
+            PendingRequest();
+            user_menu();
+            break;
+        case 6:
+            //Transfer();
+            user_menu();
+            break;
+        case 7:
             main_menu();
             break;
         default:
-            cout << "Wrong  input" << endl;
+            cout << "Wrong input" << endl;
             cout << "Please Try Again...."<<endl << endl;
             return user_menu();
         }
@@ -334,15 +350,15 @@ public:
                 main_menu();
             break;
         case 3:
-                AdminLogin();
-                 main_menu();
-                break;
-            case 4:
-                cout << "Exiting..." << endl;
-                break;
-            default:
-                cout<<endl << "Wrong input" << endl;
-                cout << "Please Try Again...."<<endl << endl;
+            AdminLogin();
+            main_menu();
+            break;
+        case 4:
+            cout << "Exiting..." << endl;
+            break;
+        default:
+            cout<<endl << "Wrong input" << endl;
+            cout << "Please Try Again...."<<endl << endl;
         }
     }
 };
