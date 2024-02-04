@@ -205,6 +205,23 @@ public:
             temp=temp->next;
         }
     }
+    void RequestService()
+    {
+        node *temp = head;
+        while (temp != NULL)
+        {
+            if (temp->cardNo == y && temp->pin == z)
+            {
+                cout << "Please Enter Your Service Request: ";
+                cin.ignore();
+                getline(cin, temp->pendingRequest);
+                cout << "Request Submitted Successfully" << endl;
+                break;
+            }
+            temp = temp->next;
+        }
+    }
+
     void AdminLogin()
     {
         string Name, Pass;
