@@ -269,6 +269,71 @@ public:
             cout << "Invalid choice in Admin Panel" << endl;
         }
     }
+    void Transfer()
+    {
+        node* sender = NULL;
+        node* receiver = NULL;
+
+        cout << "Enter your Card No: ";
+        cin >> y;
+
+        cout << "Enter your Pin: ";
+        cin >> z;
+
+        node* temp = head;
+        while (temp != NULL)
+        {
+            if (temp->cardNo == y && temp->pin == z)
+            {
+                sender = temp;
+                break;
+            }
+            temp = temp->next;
+        }
+
+        if (sender == NULL)
+        {
+            cout << "Your cardNo or Pin is wrong\n";
+            cout << "Please Try Again....\n\n";
+            return;
+        }
+
+        cout << "Enter the recipient's Card No: ";
+        cin >> y;
+
+        temp = head;
+        while (temp != NULL)
+        {
+            if (temp->cardNo == y)
+            {
+                receiver = temp;
+                break;
+            }
+            temp = temp->next;
+        }
+
+        if (receiver == NULL)
+        {
+            cout << "Recipient's account not found." << endl;
+            return;
+        }
+
+        cout << "Enter the amount to transfer: ";
+        cin >> c;
+
+        if (sender->cash >= c)
+        {
+            sender->cash -= c;
+            receiver->cash += c;
+
+            cout << "Transfer successful!" << endl;
+            cout << "Your new balance: " << sender->cash << ".TK" << endl;
+        }
+        else
+        {
+            cout << "You don't have enough balance to transfer." << endl;
+        }
+    }
     void user_menu()
     {
         cout << "_____________________" << endl;
@@ -311,7 +376,7 @@ public:
             user_menu();
             break;
         case 6:
-            //Transfer();
+            Transfer();
             user_menu();
             break;
         case 7:
