@@ -192,6 +192,19 @@ public:
             temp=temp->next;
         }
     }
+    void PendingRequest()
+    {
+        node*temp=head;
+        while(temp!=NULL)
+        {
+            if(temp->cardNo==y && temp->pin==z)
+            {
+                cout << "Your Pending Request: " << temp->pendingRequest << endl;
+                break;
+            }
+            temp=temp->next;
+        }
+    }
     void AdminLogin()
     {
         string Name, Pass;
