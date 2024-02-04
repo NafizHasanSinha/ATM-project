@@ -8,6 +8,7 @@ struct node
     int pin;
     string name;
     int cash;
+    string pendingRequest;
     node *next;
     node *prev;
 };
@@ -19,6 +20,8 @@ class ATM
     long long int y;
     int z;
     int c;
+    string AdminName;
+    string AdminPass;
 
 public:
     ATM()
@@ -28,6 +31,8 @@ public:
         y = 0;
         z = 0;
         c = 0;
+        AdminName = "nafiz";
+        AdminPass = "1234";
     }
     int count_digits(long long int n)
     {
@@ -187,6 +192,53 @@ public:
             temp=temp->next;
         }
     }
+    void AdminLogin()
+    {
+        string Name, Pass;
+        cout << "Admin Username: ";
+        cin >> Name;
+
+        cout << "Admin Password: ";
+        cin >> Pass;
+
+        if (Name == AdminName && Pass == AdminPass)
+        {
+            AdminPanel();
+        }
+        else
+        {
+            cout << "Admin login failed. Please try again." << endl;
+        }
+    }
+    void AdminPanel()
+    {
+        cout << "**********************************" << endl;
+        cout << "*         Admin Panel            *" << endl;
+        cout << "**********************************"<< endl;
+        cout << "1. View All User Accounts" << endl;
+        cout << "2. View Pending Requests" << endl;
+        cout << "3. Exit" << endl;
+        cout << "**********************************" << endl;
+
+        int Achoice;
+        cout << "Enter your choice: ";
+        cin >> Achoice;
+
+        switch (Achoice)
+        {
+            case 1:
+                AdminPanel();
+                break;
+            case 2:
+                AdminPanel();
+                break;
+            case 3:
+                cout << "Exiting Admin Panel..." << endl;
+                break;
+            default:
+                cout << "Invalid choice in Admin Panel" << endl;
+        }
+    }
     void user_menu()
     {
         cout << "_____________________" << endl;
@@ -231,7 +283,8 @@ public:
         cout << "|    MAIN MENU      |" << endl;
         cout << "|1. Create Account  |" << endl;
         cout << "|2. Login to Account|" << endl;
-        cout << "|3. Exit            |" << endl;
+        cout << "|3. Admin Login     |" << endl;
+        cout << "|4. Exit            |" << endl;
         cout << "|___________________|" << endl;
         int scommand;
 
@@ -251,12 +304,15 @@ public:
                 main_menu();
             break;
         case 3:
-            cout << "Exiting..." << endl;
-            break;
-        default:
-            cout<<endl << "Wrong input" << endl;
-            cout << "Please Try Again...."<<endl << endl;
-            return main_menu();
+                AdminLogin();
+                 main_menu();
+                break;
+            case 4:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout<<endl << "Wrong input" << endl;
+                cout << "Please Try Again...."<<endl << endl;
         }
     }
 };
