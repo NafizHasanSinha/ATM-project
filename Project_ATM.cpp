@@ -269,6 +269,25 @@ public:
             cout << "Invalid choice in Admin Panel" << endl;
         }
     }
+    void Pending()
+    {
+        node* temp = head;
+        cout << "**********************************" << endl;
+        cout << "      PENDING SERVICE REQUESTS" << endl;
+        cout << "**********************************" << endl;
+
+        while (temp != NULL)
+        {
+            if (!temp->pendingRequest.empty())
+            {
+                cout << "Name: " << temp->name << endl;
+                cout << "Card No: " << temp->cardNo << endl;
+                cout << "Pending Request: " << temp->pendingRequest << endl;
+                cout << "----------------------------------" << endl;
+            }
+            temp = temp->next;
+        }
+    }
     void Transfer()
     {
         node* sender = NULL;
