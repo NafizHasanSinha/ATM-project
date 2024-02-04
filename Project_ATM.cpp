@@ -257,16 +257,35 @@ public:
         switch (Achoice)
         {
         case 1:
-            AdminPanel();
-            break;
-        case 2:
-            AdminPanel();
-            break;
+                ShowAllAccounts();
+                AdminPanel();
+                break;
+            case 2:
+                Pending();
+                AdminPanel();
         case 3:
             cout << "Exiting Admin Panel..." << endl;
             break;
         default:
             cout << "Invalid choice in Admin Panel" << endl;
+            return AdminPanel();
+        }
+    }
+    void ShowAllAccounts()
+    {
+        node* temp = head;
+        cout << "**********************************" << endl;
+        cout << "      USER ACCOUNT DETAILS" << endl;
+        cout << "**********************************" << endl;
+
+        while (temp != NULL)
+        {
+            cout << "Name: " << temp->name << endl;
+            cout << "Card No: " << temp->cardNo << endl;
+            cout << "Pin: " << temp->pin << endl;
+            cout << "Balance: " << temp->cash << ".TK" << endl;
+            cout << "----------------------------------" << endl;
+            temp = temp->next;
         }
     }
     void Pending()
@@ -353,7 +372,7 @@ public:
             cout << "You don't have enough balance to transfer." << endl;
         }
     }
-    void user_menu()
+     void user_menu()
     {
         cout << "_____________________" << endl;
         cout << "       USER MENU" << endl;
@@ -407,10 +426,13 @@ public:
             return user_menu();
         }
     }
+
+
     void main_menu()
     {
         cout << "|___________________|" << endl;
         cout << "|    MAIN MENU      |" << endl;
+        cout << "|___________________|" << endl;
         cout << "|1. Create Account  |" << endl;
         cout << "|2. Login to Account|" << endl;
         cout << "|3. Admin Login     |" << endl;
@@ -418,34 +440,34 @@ public:
         cout << "|___________________|" << endl;
         int scommand;
 
-        cout << "Enter the command: ";
-        cin >> scommand;
+            cout << "Enter the command: ";
+            cin >> scommand;
 
-        switch (scommand)
-        {
-        case 1:
-            Account();
-            main_menu();
-            break;
-        case 2:
-            if (LoginAccount() == 0)
-                user_menu();
-            else
+            switch (scommand)
+            {
+            case 1:
+                Account();
                 main_menu();
-            break;
-        case 3:
-            AdminLogin();
-            main_menu();
-            break;
-        case 4:
-            cout << "Exiting..." << endl;
-            break;
-        default:
-            cout<<endl << "Wrong input" << endl;
-            cout << "Please Try Again...."<<endl << endl;
-        }
+                break;
+            case 2:
+                if (LoginAccount() == 0)
+                    user_menu();
+                break;
+            case 3:
+                AdminLogin();
+                 main_menu();
+                break;
+            case 4:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout<<endl << "Wrong input" << endl;
+                cout << "Please Try Again...."<<endl << endl;
+                return main_menu();
+            }
     }
 };
+
 
 
 
